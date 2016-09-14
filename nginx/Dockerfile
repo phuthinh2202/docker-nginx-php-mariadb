@@ -4,7 +4,7 @@ MAINTAINER thinhlp <phuthinh2202@gmail.com>
 #RUN rm -rf /etc/nginx/nginx.conf
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
-VOLUME ["/etc/nginx/sites-enabled", "/var/www/sites"]
+VOLUME ["/etc/nginx/sites-enabled", "/var/www/sites", "/var/log/nginx"]
 WORKDIR /etc/nginx
 
 EXPOSE 80

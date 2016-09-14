@@ -5,12 +5,13 @@ services:
         volumes:
          - /etc/nginx/sites-enabled:/etc/nginx/sites-enabled
          - /var/www/sites:/var/www/sites
+         - /var/log/nginx:/var/log/nginx
         ports:
          - "80:80"
         links:
-         - php
-         - mariadb
-    mariadb:
+         - phpfpm
+         - mariadatabase
+    mariadatabase:
         build: ./mariadb
         volumes:
          - /var/log/mysql:/var/log/mysql
@@ -19,10 +20,11 @@ services:
          - MYSQL_ROOT_PASSWORD=matkhaudedoan
         ports:
          - "3306:3306"
-    php:
+    phpfpm:
         build: ./php-56fpm
         volumes:
          - /var/log/php:/var/log/php
+         - /var/www/sites:/var/www/sites
         ports:
          - "9000:9000"
             
