@@ -1,0 +1,26 @@
+version: '1'
+services:
+    web1:
+        build: ./nginx
+        volumes:
+         - ./etc/nginx/sites-enabled:/etc/nginx/sites-enabled
+         - ./var/www/sites:/var/www/sites
+        ports:
+         - "80:80"
+        links:
+         - php
+         - mariadb
+    mariadb:
+        build: ./mariadb
+        volumes:
+         - ./var/log/mysql:/var/log/mysql
+         - ./var/lib/mysql:/var/lib/mysql
+        ports:
+         - "3306:3306"
+    php:
+        build: ./php-56fpm
+        volumes:
+         - ./var/log/php:/var/log/php
+        ports:
+         - "9000:9000"
+            
