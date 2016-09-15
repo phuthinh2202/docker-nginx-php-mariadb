@@ -25,6 +25,7 @@ services:
         volumes:
          - /var/log/php:/var/log/php
          - /var/www/sites:/var/www/sites
+         - /home/download/phalcon-devtools:/home/download/phalcon-devtools
         ports:
          - "9000:9000"
             
