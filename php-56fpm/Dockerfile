@@ -1,4 +1,4 @@
-FROM php:5.6fpm
+FROM php:5.6-fpm
 MAINTAINER thinhlp <phuthinh2202@gmail.com>
 
 # Add new file config
@@ -10,7 +10,6 @@ ADD configs/www.conf /etc/php-fpm.d/
 
 # Define VOLUME
 VOLUME ["/var/log/php"]
-
 
 EXPOSE 9000
 CMD ["php-fpm"]
